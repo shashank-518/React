@@ -8,7 +8,18 @@ function App() {
   
 
   const addOne = ()=>{
-    setCount(count+1)
+    // wont work
+    // setCount(count+1)
+    // setCount(count+1)
+    // setCount(count+1)
+    // setCount(count+1)
+
+    // this will work
+    setCount((prev)=> prev+1)
+    setCount((prev)=> prev+1)
+    setCount((prev)=> prev+1)
+    setCount((prev)=> prev+1)
+
   }
   const subOne = ()=>{
     setCount(count-1)
