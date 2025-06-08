@@ -1,5 +1,16 @@
 const customRender = (ReactElement , mainContainer)=>{
-    
+    const domElement = document.createElement(ReactElement.type)
+
+    domElement.innerHTML = ReactElement.children
+
+    for(const props in ReactElement.props){
+        domElement.setAttribute(props, ReactElement.props[props])
+    }
+
+    mainContainer.appendChild(domElement)
+
+
+
 }
 
 
