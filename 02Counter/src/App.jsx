@@ -5,15 +5,23 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  let counter = 15
+  
+
+  const addOne = ()=>{
+    setCount(count+1)
+  }
+  const subOne = ()=>{
+    setCount(count-1)
+  }
+
   return (
 
     <>
       <h1>Learn React with shashank</h1>
-      <h3>Counter : {counter}</h3>
+      <h3>Counter : {count}</h3>
 
-      <button>Add Counter</button> {"  "}
-      <button>Sub Counter</button>
+      <button onClick={addOne} >Add Counter</button> {"  "}
+      <button onClick={subOne} >Sub Counter</button>
 
     </>
   )
