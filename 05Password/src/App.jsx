@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useCallback} from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -8,6 +8,34 @@ function App() {
   const [character, setCharacter] = useState(false);
   const [number, setNumber] = useState(false);
   const [password , setPassword] = useState('')
+
+
+  const generatePassword = useCallback(()=>{
+
+
+    let alphabets = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let numbers = '0123456789';
+    let symbols = '!@#$%^&*()_+-=[]{}|;:",.<>?/`~';
+    let pass = ""
+
+    if (character) {
+      alphabets+=symbols
+    }
+    if(number){
+      alphabets+=numbers
+    }
+
+
+    for (let i = 1; i <= length; i++) {
+      let chara = Math.floor(Math.random()* alphabets.length + 1)
+      pass+= alphabets.charAt(chara)
+    }
+
+    setPassword(pass)
+
+  }, [length,number,character])
+
+
 
   return (
     <>
@@ -45,7 +73,9 @@ function App() {
         <div className="flex items-center space-x-3">
           <input
             type="checkbox"
+            defaultChecked={character}
             id="character"
+            onChange={()=>{setCharacter((prev)=>!prev)}}
             className="w-5 h-5 accent-blue-500"
           />
           <label htmlFor="character" className="text-gray-700">
@@ -54,7 +84,12 @@ function App() {
         </div>
 
         <div className="flex items-center space-x-3">
-          <input type="checkbox" id="number" className="w-5 h-5 accent-blue-500" />
+          <input
+           type="checkbox" 
+           defaultChecked={number}
+           id="number" 
+           onChange={()=>{setNumber((prev)=>!prev)}}
+           className="w-5 h-5 accent-blue-500" />
           <label htmlFor="number" className="text-gray-700">
             Number
           </label>
