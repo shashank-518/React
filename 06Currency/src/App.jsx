@@ -5,7 +5,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <h1>Cuurency Project</h1>
+    <h1 className='bg-red-600' >Cuurency Project</h1>
   )
 }
 
