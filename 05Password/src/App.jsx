@@ -1,4 +1,4 @@
-import { useState , useCallback} from "react";
+import { useState , useCallback ,useEffect} from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -26,7 +26,7 @@ function App() {
     }
 
 
-    for (let i = 1; i <= length; i++) {
+    for (let i = 0; i < length; i++) {
       let chara = Math.floor(Math.random()* alphabets.length + 1)
       pass+= alphabets.charAt(chara)
     }
@@ -34,6 +34,11 @@ function App() {
     setPassword(pass)
 
   }, [length,number,character])
+
+  useEffect(()=>{
+    generatePassword()
+  } , [length,number,character])
+  
 
 
 
