@@ -8,6 +8,7 @@ import About from './About/About.jsx'
 import Contact from './Contact/Contact.jsx'
 import Users from './Users/Users.jsx'
 import Github, { fetchapicall } from './Github/Github.jsx'
+import Personal from './Github/Personal.jsx'
 
 
 const router = createBrowserRouter(
@@ -17,9 +18,9 @@ const router = createBrowserRouter(
       <Route path='about' element = {<About/>} /> 
        <Route path='contact' element = {<Contact/>}  />
       <Route path='User/:id' element = {<Users/>} /> 
-       <Route loader = {fetchapicall} path='github' element = {<Github/>} >
-
-      </Route> 
+       <Route loader = {fetchapicall} path='github' element = {<Github/>} />
+      
+      <Route path='users/:username' element={<Personal/>} />
 
     </Route>
   )
