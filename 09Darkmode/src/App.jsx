@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <h1>DArk Mode Toggle</h1>
+    <h1 className='bg-red-100' >DArk Mode Toggle</h1>
   )
 }
 
