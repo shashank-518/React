@@ -5,7 +5,7 @@ import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } 
 import Layout from './Layout.jsx'
 import Home from './Home/home.jsx'
 import About from './About/About.jsx'
-
+import Contact from './Contact/Contact.jsx'
 
 
 
@@ -14,8 +14,8 @@ const router = createBrowserRouter(
     <Route path='/' element = {<Layout/>} >
       <Route path='' element = {<Home/>}  />
       <Route path='about' element = {<About/>} /> 
-      {/* {<Route path='contact' element = {<Contact/>}  />
-      <Route path='User/:id' element = {<Users/>} /> } */}
+       <Route path='contact' element = {<Contact/>}  />
+      {/*<Route path='User/:id' element = {<Users/>} /> } */}
       {/* <Route loader = {fetchapicall} path='github' element = {<LayoutGithub/>} >
           <Route path=':userid' element = {<PersonalGithub/>}/>
       </Route> */}
