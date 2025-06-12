@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -22,6 +22,19 @@ function App() {
   const toggleTodo = (id)=>{
     setTodos((prev)=> prev.map((prevTodo)=> (prevTodo.id === id ? {...prevTodo , complete :!prevTodo.complete} : prevTodo)))
   }
+
+  useEffect(()=>{
+    const todo = JSON.parse(localStorage.getItem("todos"))
+    if(todo && todo.length > 0){
+      setTodos(todo)
+    }
+  } , [])
+
+  useEffect(()=>{
+
+    localStorage.setItem('todos' , JSON.stringify(Todos))
+
+  } , [Todos])
 
   return (
 
