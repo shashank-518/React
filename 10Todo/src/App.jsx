@@ -15,6 +15,14 @@ function App() {
     setTodos((prev) => prev.map((prevTodo)=> (prevTodo.id === id  ? todo : prevTodo)) )
   }
 
+  const deleteTodo = (id)=>{
+    setTodos((prev)=> prev.filter((prevTodo) => prevTodo.id !== id))
+  }
+
+  const toggleTodo = (id)=>{
+    setTodos((prev)=> prev.map((prevTodo)=> (prevTodo.id === id ? {...prevTodo , complete :!prevTodo.complete} : prevTodo)))
+  }
+
   return (
 
     <TodoContextProvider value={{Todos , addTodo ,updateTodo ,deleteTodo , toggleTodo}} >
