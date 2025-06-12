@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { TodoContextProvider } from './Contexts/TodoContext'
+import TodoForm from './Components/TodoForm'
 
 function App() {
   const [Todos, setTodos] = useState([])
@@ -40,7 +41,7 @@ function App() {
 
     <TodoContextProvider value={{Todos , addTodo ,updateTodo ,deleteTodo , toggleTodo}} >
 
-      <h1 className='bg-red-800' >Todo App</h1>
+      <TodoForm/>
     </TodoContextProvider>
 
   )
